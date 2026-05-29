@@ -1,16 +1,16 @@
-#ifndef BUS_H
-#define BUS_H
+#ifndef VAN_H
+#define VAN_H
 
 #include "core/Vehicle.h"
 
-class Bus : public Vehicle 
+class Van : public Vehicle 
 {
     public:
         // Constructor
-        Bus(std::string id, std::string routeID);
+        Van(std::string id, std::string routeID);
         
         // Destructor
-        ~Bus() override = default;
+        ~Van() override = default;
 
         // Polymorphic Overrides
         double calculateMaintenance() const override;
