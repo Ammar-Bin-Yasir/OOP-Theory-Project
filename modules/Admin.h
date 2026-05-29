@@ -16,6 +16,7 @@ class Admin : public User
         // Override the pure virtual function to render the administrative operations
         void showMenu(TransportManager& manager) override;
 
+        virtual std::string toCSV() const = 0;
 };
 
 #endif 

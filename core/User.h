@@ -30,6 +30,8 @@ class User
     
         // Pure Virtual function to be implemented by derived classes
         virtual void showMenu(TransportManager& manager) = 0;
+        
+        virtual std::string toCSV() const = 0;
 };
 
 #endif 
