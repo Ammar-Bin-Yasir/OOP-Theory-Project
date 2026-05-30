@@ -2,19 +2,19 @@
 #define FILEHANDLER_H
 
 #include <string>
-#include "Engine/TransportManager.h"
+class TransportManager;
 
 class FileHandler {
 private:
-    std::string usersFilePath;
-    std::string vehiclesFilePath;
-    std::string routesFilePath;
-    std::string passesFilePath;
+    std::string usersFilePath, vehiclesFilePath, routesFilePath, passesFilePath;
 
+    void loadRoutes(TransportManager& manager);
+    void loadVehicles(TransportManager& manager);
+    void loadUsers(TransportManager& manager);
+    void loadPasses(TransportManager& manager);
 public:
-    FileHandler(std::string uPath, std::string vPath, std::string rPath, std::string pPath);
-    
-    ~FileHandler();
+    FileHandler(const std::string& uPath, const std::string& vPath, const std::string& rPath, const std::string& pPath);    
+    ~FileHandler() = default;
 
     // Population Methods: Read from files and use manager methods to re-allocate models
     void loadAllData(TransportManager& manager);
