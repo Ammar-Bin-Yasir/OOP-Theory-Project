@@ -7,7 +7,7 @@ class Bus : public Vehicle
 {
     public:
         // Constructor
-        Bus(std::string id, std::string routeID);
+        Bus(std::string id, std::string routeID, int capacity = 40);
         
         // Destructor
         ~Bus() override = default;
@@ -16,7 +16,7 @@ class Bus : public Vehicle
         double calculateMaintenance() const override;
         void displayDetails() const override;
 
-        virtual std::string toCSV() const = 0;
+        std::string toCSV() const override;
 };
 
 #endif

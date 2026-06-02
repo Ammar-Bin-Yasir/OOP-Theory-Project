@@ -32,6 +32,9 @@ class User
         virtual void showMenu(TransportManager& manager) = 0;
         
         virtual std::string toCSV() const = 0;
+
+    protected:
+        std::string getPassword() const;
 };
 
 #endif 

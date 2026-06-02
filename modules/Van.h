@@ -7,7 +7,7 @@ class Van : public Vehicle
 {
     public:
         // Constructor
-        Van(std::string id, std::string routeID);
+        Van(std::string id, std::string routeID, int capacity = 15);
         
         // Destructor
         ~Van() override = default;
@@ -16,7 +16,7 @@ class Van : public Vehicle
         double calculateMaintenance() const override;
         void displayDetails() const override;
 
-        virtual std::string toCSV() const = 0;
+        std::string toCSV() const override;
 };
 
 #endif

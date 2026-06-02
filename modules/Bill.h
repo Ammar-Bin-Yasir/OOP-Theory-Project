@@ -35,6 +35,7 @@ public:
 
     // Business Logic Methods
     void markAsPaid();
+    void setPaidStatus(bool paidStatus);
     void applyLateFine(double fineAmount);
     void displayBill() const;
 };

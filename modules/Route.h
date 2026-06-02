@@ -28,6 +28,7 @@ class Route
         // Display and Serialization Methods
         void displayRoute() const;
         std::string toCSV() const;
+        double calculateBaseFee(double ratePerKm) const;
 
         // Operator Overloading
         bool operator==(const Route& other) const;

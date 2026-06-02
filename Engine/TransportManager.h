@@ -2,6 +2,7 @@
 #define TRANSPORTMANAGER_H
 
 #include <string>
+#include "core/ClassArray.h"
 
 class User;
 class Vehicle;
@@ -11,29 +12,12 @@ class TransportPass;
 class TransportManager 
 {
     private:
-        // 2-D array's to keep track of how many users, vehicles, routes and TransportPasses are in the system
-        User** userList;
-        Vehicle** vehicleList;
-        Route** routeList;
-        TransportPass** passList;
+        ClassArray<User*> userList;
+        ClassArray<Vehicle*> vehicleList;
+        ClassArray<Route*> routeList;
+        ClassArray<TransportPass*> passList;
 
-        // Current item counters
-        int userCount;
-        int vehicleCount;
-        int routeCount;
-        int passCount;
-
-        // Boundary limit trackers before array doubling triggers
-        int userCapacity;
-        int vehicleCapacity;
-        int routeCapacity;
-        int passCapacity;
-
-        // Internal helper methods for dynamic expansion 
-        void growUserList();
-        void growVehicleList();
-        void growRouteList();
-        void growPassList();
+        std::string currentSystemDate;
 
     public:
         TransportManager();
@@ -51,31 +35,46 @@ class TransportManager
         bool registerNewUser(const std::string& username, const std::string& password, const std::string& role, const std::string& details);
 
         // Getters 
-        User** getUserList() const;
+        const ClassArray<User*>& getUserList() const;
         int getUserCount() const;
-        Vehicle** getVehicleList() const;
+        const ClassArray<Vehicle*>& getVehicleList() const;
         int getVehicleCount() const;
-        Route** getRouteList() const;
+        const ClassArray<Route*>& getRouteList() const;
         int getRouteCount() const;
-        TransportPass** getPassList() const;
+        const ClassArray<TransportPass*>& getPassList() const;
         int getPassCount() const;
 
         // Admin Panel Methods
         void addVehicle(Vehicle* newVehicle);
+        void removeVehicle(const std::string& vehicleID);
+        void updateVehicleDetails(const std::string& vehicleID, int newCapacity, const std::string& newRouteID);
+        void viewAllVehicles() const;
         void addRoute(const Route& newRoute);
         void assignVehicleToRoute(const std::string& vehicleID, const std::string& routeID);
         void viewAllApplications() const;
         void processApplication(const std::string& passID, bool approve);
+        // Financial Analytical Reporting Engine
+        void generateRouteUsageReport() const;
+        void generateRevenueReport() const;
+
+        // Search & Lookup Helpers
+        User* findUser(const std::string& username) const;
+        Vehicle* findVehicle(const std::string& vehicleID) const;
+        Route* findRoute(const std::string& routeID) const;
+        TransportPass* findPass(const std::string& passID) const;
+
+        // Date & Billing Cycle Management
+        std::string getSystemDate() const;
+        void setSystemDate(const std::string& newDate);
+        void advanceBillingCycle();
         
+
         // Student Panel Methods    
         void viewAllRoutes() const; 
         void submitApplication(const std::string& studentUsername, const std::string& routeID); 
         void cancelRegistration(const std::string& studentUsername); 
-
-
-        // Financial Analytical Reporting Engine
-        void generateRevenueReport() const;
-        void generateRouteUsageReport() const;
+        void viewStudentRegistration(const std::string& studentUsername) const;
+        void payStudentFee(const std::string& studentUsername);
 };
 
 #endif

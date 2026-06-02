@@ -28,7 +28,7 @@ class Student : public User {
         void linkPass(TransportPass* pass);
         void unlinkPass(); 
 
-        virtual std::string toCSV() const = 0;
+        std::string toCSV() const override;
 
         void showMenu(TransportManager& manager) override;
 };
