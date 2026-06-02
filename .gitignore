@@ -430,3 +430,5 @@ FodyWeavers.xsd
 
 main
 transport_system
+*.o
+*.exe
