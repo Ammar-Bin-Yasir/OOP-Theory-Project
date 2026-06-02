@@ -35,10 +35,14 @@ void Bill::markAsPaid() {
     isPaid = true;
 }
 
+void Bill::setPaidStatus(bool paidStatus) {
+    isPaid = paidStatus;
+}
+
 void Bill::applyLateFine(double fineAmount) {
     lateFine += fineAmount;
 }
 
 void Bill::displayBill() const {
-    // Stub
+    // Empty stub
 }

@@ -3,17 +3,17 @@
 
 using namespace std;
 
-Bus::Bus(string id, string routeID)
-    : Vehicle(id, 40, routeID) {}
+Bus::Bus(string id, string routeID, int capacity)
+    : Vehicle(id, capacity, routeID) {}
 
 double Bus::calculateMaintenance() const {
-    return 0.0; // Stub
+    return 0.0; // Empty stub
 }
 
 void Bus::displayDetails() const {
-    // Stub
+    // Empty stub
 }
 
 string Bus::toCSV() const {
-    return ""; // Stub
+    return ""; // Empty stub
 }

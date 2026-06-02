@@ -1,5 +1,4 @@
 #include "modules/TransportPass.h"
-#include <sstream>
 #include <iostream>
 
 using namespace std;
@@ -10,7 +9,7 @@ TransportPass::TransportPass(string pID, string sUname, string rID, string vID, 
     : passID(pID), studentUsername(sUname), routeID(rID), vehicleID(vID), status("Pending"), invoice(baseFee, due) {}
 
 TransportPass::TransportPass(string csvLine) {
-    // Stub
+    // Empty stub
 }
 
 string TransportPass::getPassID() const {
@@ -46,9 +45,9 @@ void TransportPass::assignVehicle(string vID) {
 }
 
 void TransportPass::displayPassDetails() const {
-    // Stub
+    // Empty stub
 }
 
 string TransportPass::toCSV() const {
-    return ""; // Stub
+    return ""; // Empty stub
 }

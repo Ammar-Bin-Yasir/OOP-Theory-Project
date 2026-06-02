@@ -8,9 +8,9 @@ Admin::Admin(const string& username, const string& password)
     : User(username, password, "Admin") {}
 
 void Admin::showMenu(TransportManager& manager) {
-    // Stub
+    // Empty stub
 }
 
 string Admin::toCSV() const {
-    return ""; // Stub
+    return ""; // Empty stub
 }

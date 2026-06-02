@@ -3,7 +3,7 @@
 using namespace std;
 
 Vehicle::Vehicle(string id, int capacity, string routeID)
-    : vehicleID(id), assignedRouteID(routeID), activePassengers(0), totalCapacity(capacity) {}
+    : vehicleID(id), totalCapacity(capacity), assignedRouteID(routeID), activePassengers(0) {}
 
 string Vehicle::getVehicleID() const {
     return vehicleID;
@@ -22,13 +22,13 @@ int Vehicle::getActivePassengers() const {
 }
 
 void Vehicle::setAssignedRouteID(string routeID) {
-    // Stub
+    // Empty stub
 }
 
 bool Vehicle::incrementPassengers() {
-    return false; // Stub
+    return false; // Empty stub
 }
 
 void Vehicle::decrementPassengers() {
-    // Stub
+    // Empty stub
 }

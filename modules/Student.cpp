@@ -17,17 +17,17 @@ TransportPass* Student::getAssignedPass() const {
 }
 
 void Student::linkPass(TransportPass* pass) {
-    // Stub
+    assignedPass = pass;
 }
 
 void Student::unlinkPass() {
-    // Stub
+    assignedPass = nullptr;
 }
 
 string Student::toCSV() const {
-    return ""; // Stub
+    return ""; // Empty stub
 }
 
 void Student::showMenu(TransportManager& manager) {
-    // Stub
+    // Empty stub
 }

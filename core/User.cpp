@@ -3,7 +3,7 @@
 
 using namespace std;
 
-User::User(const string& username, const string& password, const string& role) 
+User::User(const string& username, const string& password, const string& role)
     : username(username), password(password), role(role) {}
 
 string User::getUsername() const {
@@ -15,13 +15,13 @@ string User::getRole() const {
 }
 
 void User::changePassword(const string& oldPassword, const string& newPassword) {
-    // Stub
+    // Empty stub
 }
 
 bool User::checkPassword(const string& input) const {
-    return false; // Stub
+    return false; // Empty stub
 }
 
-string User::toCSV() const {
-    return username + "," + password + "," + role;
+string User::getPassword() const {
+    return password;
 }
