@@ -8,7 +8,7 @@ DEBUG_TARGET = transport_system_debug
 
 # Source files
 SRCS = main.cpp \
-       core/User.cpp core/Vehicle.cpp \
+       core/User.cpp core/Vehicle.cpp core/ConsoleUI.cpp \
        modules/Admin.cpp modules/Student.cpp modules/Bus.cpp modules/Van.cpp \
        modules/Route.cpp modules/TransportPass.cpp modules/Bill.cpp modules/Report.cpp \
        storage/FileHandler.cpp \
