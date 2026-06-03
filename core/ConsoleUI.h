@@ -51,6 +51,9 @@ class ConsoleUI
         static void printTable(const ClassArray<std::string>& headers, 
                                const ClassArray<int>& widths, 
                                const ClassArray<ClassArray<std::string>>& rows);
+
+        // Double formatting helper
+        static std::string formatDouble(double val);
 };
 
 #endif

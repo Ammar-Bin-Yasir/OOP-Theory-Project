@@ -18,77 +18,101 @@ const string ConsoleUI::WHITE   = "\033[37m";
 
 // Initialize Configurable UI Colors
 int ConsoleUI::HEADER_PADDING = 6;
-int ConsoleUI::DIVIDER_LENGTH = 80;
-string ConsoleUI::PRIMARY_COLOR = ConsoleUI::CYAN;
+int ConsoleUI::DIVIDER_LENGTH = 100;
+string ConsoleUI::PRIMARY_COLOR = ConsoleUI::BLUE;
 string ConsoleUI::SECONDARY_COLOR = ConsoleUI::WHITE;
 string ConsoleUI::SUCCESS_COLOR = ConsoleUI::GREEN;
 string ConsoleUI::ERROR_COLOR = ConsoleUI::RED;
 string ConsoleUI::LABEL_COLOR = ConsoleUI::YELLOW;
 
-void ConsoleUI::clearScreen() 
-{
-    cout << "\033[2J\033[1;1H" << flush;
-}
+void ConsoleUI::clearScreen() { cout << "\033[2J\033[1;1H" << flush; }
 
 void ConsoleUI::printDivider() 
 {
-    cout << PRIMARY_COLOR << "═" << RESET;
-    for (int i = 0; i < DIVIDER_LENGTH - 2; ++i) 
-    {
-        cout << PRIMARY_COLOR << "═";
-    }
+    cout << SECONDARY_COLOR;
+    for (int i = 0; i < DIVIDER_LENGTH; ++i) { cout << "─"; }
     cout << RESET << endl;
 }
 
-/*
-╔═════════════════════════╗
-║    STUDENT DASHBOARD    ║
-╚═════════════════════════╝
-*/
 void ConsoleUI::printHeader(const string& title) 
 {
-    int boxWidth = title.length() + (HEADER_PADDING * 2) + 2;
-
-    cout << endl << PRIMARY_COLOR << BOLD;
+    int width = DIVIDER_LENGTH;
+    
+    cout << endl << SECONDARY_COLOR << BOLD;
     
     // Top border
-    cout << "╔";
-    for (int i = 0; i < boxWidth - 2; ++i) cout << "═";
-    cout << "╗" << endl;
+    cout << "┌";
+    for (int i = 0; i < width - 2; ++i) cout << "─";
+    cout << "┐" << endl;
+    
+    // Main Project Title 
+    string mainTitle = "UNIVERSITY TRANSPORT MANAGEMENT SYSTEM";
 
-    // Centered Title Line
-    cout << "║";
-    for (int i = 0; i < HEADER_PADDING; ++i) cout << " ";
-    cout << title;
-    for (int i = 0; i < HEADER_PADDING; ++i) cout << " ";
-    cout << "║" << endl;
+    // formula to center text
+    int padTitle = (width - 2 - mainTitle.length()) / 2;
+    if (padTitle < 0) padTitle = 0;
 
-    // Bottom border
-    cout << "╚";
-    for (int i = 0; i < boxWidth - 2; ++i) cout << "═";
-    cout << "╝" << RESET << endl << endl;
+
+    cout << "│";
+    // pad left side of text
+    for (int i = 0; i < padTitle; ++i) cout << " ";
+    
+    cout << BOLD << PRIMARY_COLOR << mainTitle << RESET << SECONDARY_COLOR << BOLD;
+
+    // pad right side of text
+    int titlePrinted = padTitle + mainTitle.length();
+
+    for (int i = 0; i < (width - 2 - titlePrinted); ++i) cout << " ";
+    
+    cout << "│" << endl;
+
+    // Sub-header Centered (capitalized)
+    string sub = title;
+    for (auto& c : sub) c = toupper(c);
+
+    int padSub = (width - 2 - sub.length()) / 2;
+    if (padSub < 0) padSub = 0;
+
+    
+    cout << "│";
+    // pad left side of text
+    for (int i = 0; i < padSub; ++i) cout << " ";
+
+    cout << RESET << SECONDARY_COLOR << sub << RESET << SECONDARY_COLOR << BOLD;
+
+    // pad right side of text
+    int subPrinted = padSub + sub.length();
+    for (int i = 0; i < (width - 2 - subPrinted); ++i) cout << " ";
+    
+    cout << "│" << endl;
+
+    // Bottom border of Header box
+    cout << "└";
+    for (int i = 0; i < width - 2; ++i) cout << "─";
+    cout << "┘" << RESET << endl;
 }
 
 void ConsoleUI::pause() 
 {
-    cout << endl << LABEL_COLOR << "Press Enter to continue..." << RESET;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << endl << LABEL_COLOR << "Press any key to continue..." << RESET;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    cin.get();
     cout << endl;
 }
 
 void ConsoleUI::printSuccess(const string& message) 
 {
-    cout << SUCCESS_COLOR << BOLD << "[✓] " << RESET << SUCCESS_COLOR << message << RESET << endl;
+    cout << SUCCESS_COLOR << BOLD << "[ ✓ ] " << RESET << SUCCESS_COLOR << message << RESET << endl;
 }
 
 void ConsoleUI::printError(const string& message) 
 {
-    cout << ERROR_COLOR << BOLD << "[✗] " << RESET << ERROR_COLOR << message << RESET << endl;
+    cout << ERROR_COLOR << BOLD << "[ ✗ ] " << RESET << ERROR_COLOR << message << RESET << endl;
 }
 
 void ConsoleUI::printInfo(const string& message) 
 {
-    cout << BLUE << BOLD << "[i] " << RESET << SECONDARY_COLOR << message << RESET << endl;
+    cout << BLUE << BOLD << "[ i ] " << RESET << SECONDARY_COLOR << message << RESET << endl;
 }
 
 void ConsoleUI::printLabelValue(const string& label, const string& value) 
@@ -196,10 +220,44 @@ int ConsoleUI::showMenu(const string& menuTitle, const ClassArray<string>& optio
     clearScreen();
     printHeader(menuTitle);
     
+    int width = DIVIDER_LENGTH;
+
+    // Top border of Menu Box
+    cout << SECONDARY_COLOR << BOLD << "┌";
+    for (int i = 0; i < width - 2; ++i) cout << "─";
+    cout << "┐" << endl;
+
+    cout << "│";
+    for (int i = 0; i < width - 2; ++i) cout << " ";
+    cout << "│" << endl;
+
+
+    // loop till number of options
     for (int i = 0; i < options.getSize(); ++i) 
     {
-        cout << PRIMARY_COLOR << BOLD << "  [" << (i + 1) << "] " << RESET << SECONDARY_COLOR << options[i] << RESET << endl;
+        
+        int textLen = 4 + to_string(i + 1).length() + options[i].length();
+        
+        cout << "│" << RESET << " " << SECONDARY_COLOR << BOLD << "[" << (i + 1) << "] " 
+             << RESET << SECONDARY_COLOR << options[i];
+             
+        int spaces = width - 2 - textLen;
+        if (spaces < 0) spaces = 0;
+        for (int s = 0; s < spaces; ++s) cout << " ";
+        cout << SECONDARY_COLOR << BOLD << "│" << endl;
     }
+
+    // Bottom border of Menu Box
+    cout << "│";
+    for (int i = 0; i < width - 2; ++i) cout << " ";
+    cout << "│" << endl;
+    cout << "└";
+    for (int i = 0; i < width - 2; ++i) cout << "─";
+    cout << "┘" << RESET << endl;
+
+
+    // Divider separating user input prompt
+    printDivider();
     cout << endl;
     
     return promptInt("Select an option", 1, options.getSize());
@@ -213,7 +271,7 @@ void ConsoleUI::printTable(const ClassArray<string>& headers,
     if (headers.getSize() == 0) return;
 
     // Top border
-    cout << PRIMARY_COLOR;
+    cout << SECONDARY_COLOR << BOLD;
     cout << "┌";
     for (int i = 0; i < headers.getSize(); ++i) 
     {
@@ -228,7 +286,7 @@ void ConsoleUI::printTable(const ClassArray<string>& headers,
     cout << "│";
     for (int i = 0; i < headers.getSize(); ++i) 
     {
-        cout << " " << BOLD << SECONDARY_COLOR << left << setw(widths[i]) << headers[i] << RESET << PRIMARY_COLOR << " │";
+        cout << " " << BOLD << SECONDARY_COLOR << left << setw(widths[i]) << headers[i] << RESET << SECONDARY_COLOR << " │";
     }
     cout << endl;
 
@@ -253,7 +311,7 @@ void ConsoleUI::printTable(const ClassArray<string>& headers,
             {
                 val = rows[r][c];
             }
-            cout << " " << SECONDARY_COLOR << left << setw(widths[c]) << val << RESET << PRIMARY_COLOR << " │";
+            cout << " " << SECONDARY_COLOR << left << setw(widths[c]) << val << RESET << SECONDARY_COLOR << " │";
         }
         cout << endl;
     }
@@ -266,4 +324,10 @@ void ConsoleUI::printTable(const ClassArray<string>& headers,
         if (i < headers.getSize() - 1) cout << "┴";
     }
     cout << "┘" << RESET << endl;
+}
+
+string ConsoleUI::formatDouble(double val) {
+    stringstream ss;
+    ss << fixed << setprecision(2) << val;
+    return ss.str();
 }
