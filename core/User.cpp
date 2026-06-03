@@ -15,11 +15,13 @@ string User::getRole() const {
 }
 
 void User::changePassword(const string& oldPassword, const string& newPassword) {
-    // Empty stub
+    if (checkPassword(oldPassword)) {
+        password = newPassword;
+    }
 }
 
 bool User::checkPassword(const string& input) const {
-    return false; // Empty stub
+    return this->password == input;
 }
 
 string User::getPassword() const {

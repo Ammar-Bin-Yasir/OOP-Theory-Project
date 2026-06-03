@@ -22,13 +22,19 @@ int Vehicle::getActivePassengers() const {
 }
 
 void Vehicle::setAssignedRouteID(string routeID) {
-    // Empty stub
+    assignedRouteID = routeID;
 }
 
 bool Vehicle::incrementPassengers() {
-    return false; // Empty stub
+    if (activePassengers < totalCapacity) {
+        activePassengers++;
+        return true;
+    }
+    return false;
 }
 
 void Vehicle::decrementPassengers() {
-    // Empty stub
+    if (activePassengers > 0) {
+        activePassengers--;
+    }
 }
