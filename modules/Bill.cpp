@@ -1,4 +1,5 @@
 #include "modules/Bill.h"
+#include "core/ConsoleUI.h"
 #include <iostream>
 
 using namespace std;
@@ -33,6 +34,7 @@ string Bill::getDueDate() const {
 
 void Bill::markAsPaid() {
     isPaid = true;
+    lateFine = 0.0; // Reset fine upon payment
 }
 
 void Bill::setPaidStatus(bool paidStatus) {
@@ -44,5 +46,9 @@ void Bill::applyLateFine(double fineAmount) {
 }
 
 void Bill::displayBill() const {
-    // Empty stub
+    ConsoleUI::printLabelValue("Monthly Fee Amount", "Rs. " + ConsoleUI::formatDouble(monthlyFee));
+    ConsoleUI::printLabelValue("Accumulated Fine", "Rs. " + ConsoleUI::formatDouble(lateFine));
+    ConsoleUI::printLabelValue("Total Outstanding", "Rs. " + ConsoleUI::formatDouble(getTotalAmount()));
+    ConsoleUI::printLabelValue("Payment Due Date", dueDate);
+    ConsoleUI::printLabelValue("Payment Status", isPaid ? (ConsoleUI::GREEN + "PAID" + ConsoleUI::RESET) : (ConsoleUI::RED + "UNPAID" + ConsoleUI::RESET));
 }
