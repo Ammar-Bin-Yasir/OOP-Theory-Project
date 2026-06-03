@@ -1,3 +1,5 @@
 Admin,admin,admin,
 Student,ammarbinyasir,1234,2025-cs-560
-Student,1,1,1
+Student,ali,ali123,2025-me-123
+Student,fatima,fatima123,2025-ee-456
+Student,zain,zain123,2025-ch-789

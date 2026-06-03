@@ -395,7 +395,7 @@ void TransportManager::viewAvailableRoutes() const
 
     ConsoleUI::printHeader("AVAILABLE ROUTES");
 
-    int cardWidth = 78;
+    int cardWidth = 100;
 
     // make cards for each route with details and stops schedule
     for (int i = 0; i < routeList.getSize(); ++i) 

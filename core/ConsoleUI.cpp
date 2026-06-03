@@ -95,7 +95,7 @@ void ConsoleUI::printHeader(const string& title)
 void ConsoleUI::pause() 
 {
     cout << endl << LABEL_COLOR << "Press any key to continue..." << RESET;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    cin.get();
     cin.get();
     cout << endl;
 }
@@ -263,9 +263,7 @@ int ConsoleUI::showMenu(const string& menuTitle, const ClassArray<string>& optio
     return promptInt("Select an option", 1, options.getSize());
 }
 
-void ConsoleUI::printTable(const ClassArray<string>& headers, 
-                           const ClassArray<int>& widths, 
-                           const ClassArray<ClassArray<string>>& rows) 
+void ConsoleUI::printTable(const ClassArray<string>& headers, const ClassArray<int>& widths, const ClassArray<ClassArray<string>>& rows) 
 {
     // if no headers, return
     if (headers.getSize() == 0) return;
