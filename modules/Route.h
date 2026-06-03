@@ -6,24 +6,24 @@
 class Route 
 {
     private:
-        std::string routeID, startPoint, endPoint, routeDetails;
+        std::string routeID, startPoint, endPoint, stops;
         double distance;
 
     public:
         // Constructors
         Route();
         
-        Route(const std::string& id, const std::string& start, const std::string& end, double dist, const std::string& details);
+        Route(const std::string& id, const std::string& start, const std::string& end, double dist, const std::string& stops);
 
         // For reading from files
         Route(std::string csvLine); 
 
-        // Getters (Essential for Manager Cross-Referencing)
+        // Getters
         std::string getRouteID() const;
         double getDistance() const;
         std::string getStartPoint() const;
         std::string getEndPoint() const;
-        std::string getRouteDetails() const; 
+        std::string getStops() const; 
 
         // Display and Serialization Methods
         void displayRoute() const;
