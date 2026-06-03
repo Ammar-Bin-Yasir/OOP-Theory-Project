@@ -11,6 +11,7 @@ class TransportPass;
 
 class TransportManager 
 {
+    friend class FileHandler;
     private:
         ClassArray<User*> userList;
         ClassArray<Vehicle*> vehicleList;
