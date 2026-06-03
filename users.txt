@@ -1,0 +1,3 @@
+Admin,admin,admin,
+Student,ammarbinyasir,1234,2025-cs-560
+Student,1,1,1

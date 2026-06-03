@@ -1,0 +1,10 @@
+R01,Harbanspura,New Campus,18.50,Harbanspura - Madina Town - Taj Bagh - Fateh Garh - New Pull - Lal Pul - Mughal Pura - Dharam Pura - New Campus
+R02,Nishtar Colony,New Campus,25.00,Nishtar Colony - Chungi Amarsudu - General Hospital - Qanchi Stop - Walton Stop - Defence morr - Firdous Market - Hussain chowk - Kalma Chowk - Ichra - Qartba Chowk - New Campus
+R03,Mochi Pura,New Campus,28.20,Mochi pura - Akbar chowk - M. Ali chowk - Khokhar chowk - Al-Jannat Chowk - Ameer Chowk - Butt chowk - Ghazi chowk - Wapda Town - Abu bakar chowk - Edhi Road - New Campus
+R04,Muslim Town,New Campus,22.40,Muslim Town - Naqsha Stop - Baikhe wala - Wahdat Road - Raza Block - Kharak Stop - Liaqat chowk - Sabza Zar - Babu Sabu - Shahdara Station - New Campus
+R05,Flat Stop,New Campus,19.80,Flat Stop - Scheme Morr - Yateem Khana - Morr Samanabad - Chowk Chaburji - MAO College - Secretariat - Data Darbar - Sheran wala - New Campus
+R06,Ravi Hotel,New Campus,24.60,Ravi Hotel - Allah Hoo chowk - Shadewal chowk - G-1 Market - Khokhar chowk - Expo Center - Thokar Niaz baig - New Campus
+R07,Burj Attari,New Campus,30.50,Burj Attari - Faiz Pur - Phool Mandi - Begum Kot - Shahdara - Kashmir Park - Machis Factory - Imamia colony - Rachna Town - Haider road - Rana town - New Campus
+R08,Bismillah Scheme,New Campus,26.10,Bismillah scheme - Yadgar Shuhda - Adda Shabeel - Salamat Pura - Darogawala - Akhri minute - Souk Nahar - Shalimar chowk - Gaas mandi - Singh pura - New Campus
+R09,Chan Da Qilla,New Campus,45.00,Chan da qilla - Kamoki - Sadhoki - Muridkey - Ravi Riyan - Ittehad Chemical - S.A Garden - New Campus
+R10,Ghazi Road,New Campus,35.20,Ghazi Road - Bhatta chowk - Barki Interchange - Ranger Headquarter - Murgi Khana - Askari 9 - Sadar Gol Chakar - Ghari Shahu - Railway station - New Campus
