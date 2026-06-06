@@ -11,8 +11,10 @@ using namespace std;
 Admin::Admin(const string& username, const string& password)
     : User(username, password, "Admin") {}
 
-void Admin::showMenu(TransportManager& manager) {
+void Admin::showMenu(TransportManager& manager) 
+{
     ClassArray<string> opts;
+
     opts.add("Add Route");
     opts.add("Add Vehicle");
     opts.add("Update Vehicle Details (Capacity/Route)");
@@ -27,16 +29,20 @@ void Admin::showMenu(TransportManager& manager) {
 
     while (true) {
         int choice = ConsoleUI::showMenu("ADMINISTRATOR CONTROL PANEL", opts);
-        if (choice == 1) {
+        if (choice == 1) 
+        {
             string id = ConsoleUI::promptString("Enter Route ID (e.g. R01)");
             string start = ConsoleUI::promptString("Enter Start Point");
             string end = ConsoleUI::promptString("Enter End Point");
             double dist = ConsoleUI::promptDouble("Enter Distance in KM", 0.1);
             string stops = ConsoleUI::promptString("Enter Stops Details (e.g. Stop1 - Stop2 - Stop3)");
+            
             Route r(id, start, end, dist, stops);
             manager.addRoute(r);
             ConsoleUI::pause();
-        } else if (choice == 2) {
+        }
+        else if (choice == 2) 
+        {
             string id = ConsoleUI::promptString("Enter Vehicle ID (e.g. V01)");
             string routeID = ConsoleUI::promptString("Enter Route ID to assign");
             int typeChoice = ConsoleUI::promptInt("Select Type:\n  [1] Bus (Capacity 40)\n  [2] Van (Capacity 15)\nSelect Type", 1, 2);
@@ -53,6 +59,7 @@ void Admin::showMenu(TransportManager& manager) {
             string id = ConsoleUI::promptString("Enter Vehicle ID to update");
             int newCap = ConsoleUI::promptInt("Enter New Seating Capacity", 5, 100);
             string newRouteID = ConsoleUI::promptString("Enter New Assigned Route ID");
+            
             manager.updateVehicleDetails(id, newCap, newRouteID);
             ConsoleUI::pause();
         } else if (choice == 4) {

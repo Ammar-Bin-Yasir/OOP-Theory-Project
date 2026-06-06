@@ -8,3 +8,4 @@ R07,Burj Attari,New Campus,30.50,Burj Attari - Faiz Pur - Phool Mandi - Begum Ko
 R08,Bismillah Scheme,New Campus,26.10,Bismillah scheme - Yadgar Shuhda - Adda Shabeel - Salamat Pura - Darogawala - Akhri minute - Souk Nahar - Shalimar chowk - Gaas mandi - Singh pura - New Campus
 R09,Chan Da Qilla,New Campus,45.00,Chan da qilla - Kamoki - Sadhoki - Muridkey - Ravi Riyan - Ittehad Chemical - S.A Garden - New Campus
 R10,Ghazi Road,New Campus,35.20,Ghazi Road - Bhatta chowk - Barki Interchange - Ranger Headquarter - Murgi Khana - Askari 9 - Sadar Gol Chakar - Ghari Shahu - Railway station - New Campus
+R11,uet,hoe,25.00,hal - asd - sadf - wer
