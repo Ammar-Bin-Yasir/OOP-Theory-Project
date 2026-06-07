@@ -1,7 +1,13 @@
 #include "Engine/TransportManager.h"
+#ifdef _WIN32
+#include <windows.h> // Required for Windows Console API execution
+#endif
 
 int main() 
 {
+    #ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
     // 1. Instantiate the central engine core
     TransportManager systemEngine;
 
