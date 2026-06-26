@@ -2,7 +2,7 @@
 
 A console-based fleet, route, and pass management system for university transport, built in C++ with a layered architecture and full use of core OOP principles — inheritance, polymorphism, encapsulation, and abstraction — across a multi-class system.
 
-/run/media/ammarbinyasir/InternalDrive/Ammar-Personal/University/Semester2/OOP-LAB/OOP-Theory-Project/documentation/UML Diagram.png
+![UML Diagram](documentation/UML_diagram.png)
 <!-- Already in your documentation/ folder — just needs the relative path to render on GitHub -->
 
 ## What this project demonstrates
