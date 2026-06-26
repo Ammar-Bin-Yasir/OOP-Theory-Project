@@ -432,3 +432,8 @@ main
 transport_system
 *.o
 *.exe
+
+
+documentation/*.docx
+
+documentation/*.pdf
