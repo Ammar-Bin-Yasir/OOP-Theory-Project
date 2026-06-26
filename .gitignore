@@ -434,6 +434,5 @@ transport_system
 *.exe
 
 
-documentation/*.docx
-
-documentation/*.pdf
+*.docx
+*.pdf
