@@ -1,6 +1,6 @@
 #include "Engine/TransportManager.h"
 #ifdef _WIN32
-#include <windows.h> // Required for Windows Console API execution
+#include <windows.h>
 #endif
 
 int main() 
